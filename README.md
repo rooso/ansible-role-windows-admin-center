@@ -44,6 +44,10 @@ Defines how SSL certificates are handled, installer can generate a self signed c
 
 The thubmprint of the certificate you wish to use for Windows Admin Center's web server. If the certificate option is set to installed, wac_sme_thumbprint is required. Note: There is no default value here.
 
+    wac_winrm_https: 1
+
+Defines if WinRM over https is used for WAC to communicate with clients. Default is wac_winrm_https: 1 which means WinRM over https is forced.
+
     wac_product_id: '{65E83844-8B8A-42ED-B78D-BA021BE4AE83}'
 
 Windows Admin Center's MSI Installer ID, only change this if you know what you're doing.
