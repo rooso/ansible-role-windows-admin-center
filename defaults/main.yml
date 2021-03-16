@@ -8,9 +8,15 @@ wac_server_hostname: "{{ inventory_hostname }}"
 wac_constrained_delegation_enabled: false
 wac_constrained_delegation_ad_server: ""
 wac_constrained_delegation_list: []
-wac_ssl_certificate_option: generate
+wac_ssl_certificate_option: installed
 wac_sme_thumbprint: ""
-wac_sme_port: 8443
+wac_sme_port: 443
 wac_state: present
 wac_product_id: '{65E83844-8B8A-42ED-B78D-BA021BE4AE83}'
-wac_args: RESTART_WINRM=0 SME_PORT={{ wac_sme_port }} SSL_CERTIFICATE_OPTION={{ wac_ssl_certificate_option }}
+wac_args: RESTART_WINRM=0 SME_PORT={{ wac_sme_port }} SSL_CERTIFICATE_OPTION={{ wac_ssl_certificate_option }} WINRM_HTTPS=1
+wac_extensions:
+  - name: msft.sme.active-directory
+  - name: msft.sme.dhcp
+  - name: msft.sme.dns
+  - name: msft.sme.storage
+  - name: microsoft.security
